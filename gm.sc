@@ -9,4 +9,4 @@ __config() -> {
   }
 };
 
-_mode() -> run('gamemode %s '+player()~'command_name');return('&8[&em&ba&6i&7SMP&8]&f Gamemode cambiata con successo')
+_mode() -> run('gamemode %s '+player()~'command_name'); return('&8[&em&ba&6i&7SMP&8]&f Gamemode cambiata con successo')
