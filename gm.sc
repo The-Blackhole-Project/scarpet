@@ -1,5 +1,3 @@
-import('math','_euclidean');
-
 __config() -> {
   'stay_loaded' -> true,
   'scope' -> 'global',
