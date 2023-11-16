@@ -240,6 +240,8 @@ if(global_drop_in_creative && player ~ 'gamemode' == 'creative',
         )
     ))
 );
+
+__on_player_breaks_block(player, block) ->
 if(_valid_item(player),
     blockdata = block_data(block);
     container_size = inventory_size(block);
