@@ -1,6 +1,8 @@
+import('math','_euclidean');
+
 __config() -> {
-  'scope' -> 'global',
   'stay_loaded' -> true,
+  'scope' -> 'global',
   'commands' -> {
     '0' ->  (run('gamemode survival '+player()~'command_name');return('&8[&em&ba&6i&7SMP&8]&f Gamemode cambiata con successo')),
     '1' -> (run('gamemode creative '+player()~'command_name');return('&8[&em&ba&6i&7SMP&8]&f Gamemode cambiata con successo')),
