@@ -214,7 +214,32 @@ _valid_item(player) -> (
 );
 
 // inject into the dropped-item the custom nbt
+__on_player_breaks_block(player, block) ->
+if(global_drop_in_creative && player ~ 'gamemode' == 'creative',
+    blockdata = block_data(block);
+    container_size = inventory_size(block);
+    // wait for the dropped-item to spawn
+    schedule(0, _(outer(player), outer(block), outer(blockdata), outer(container_size)) -> (
+        if(item = _block_item(block),
+            item = item:0;
+            if(!_match_any(block, global_preserve_block_state_blacklist),
+                _preserve_block_state(item, player, block);
+            );
+            if(!_match_any(block, global_preserve_block_data_blacklist) && !container_size,
+                _preserve_block_data(item, player, block, blockdata);
+            )
+        );
 
+        if(system_info('world_carpet_rules'):'carefulBreak' == 'true' && player ~ 'sneaking',
+            items = _items_near_pos(pos(block) + 0.5);
+            for(items,
+                if(_inventory_space(_, player),
+                    _move_to_player(_, player)
+                )
+            )
+        )
+    ))
+);
 
 __on_player_breaks_block(player, block) ->
 if(_valid_item(player),
