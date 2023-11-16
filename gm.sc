@@ -1,6 +1,6 @@
 __config() -> {
-  'scope' -> 'global',
   'stay_loaded' -> true,
+  'scope' -> 'global',
   'commands' -> {
     '0' -> _() -> _mode('0'),
     '1' -> _() -> _mode('1'),
@@ -10,6 +10,8 @@ __config() -> {
   'arguments' -> {
     'mode' -> {
         'type' -> 'int',
+        'min' -> 0,
+        'max' -> 3,
         'suggest' -> [0,1,2,3]
     }
   }
