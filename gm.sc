@@ -1,6 +1,6 @@
 __config() -> {
-  'stay_loaded' -> true,
   'scope' -> 'global',
+  'stay_loaded' -> true,
   'commands' -> {
     '0' -> _() -> _mode('0'),
     '1' -> _() -> _mode('1'),
