@@ -4,9 +4,11 @@ __config() -> {
   'stay_loaded' -> true,
   'scope' -> 'global',
   'commands' -> {
-    '0' -> run('gamemode survival '+player()~'command_name');return('&8[&em&ba&6i&7SMP&8]&f Gamemode cambiata con successo'),
-    '1' -> run('gamemode creative '+player()~'command_name');return('&8[&em&ba&6i&7SMP&8]&f Gamemode cambiata con successo'),
-    '2' -> run('gamemode adventure '+player()~'command_name');return('&8[&em&ba&6i&7SMP&8]&f Gamemode cambiata con successo'),
-    '3' -> run('gamemode spectator '+player()~'command_name');return('&8[&em&ba&6i&7SMP&8]&f Gamemode cambiata con successo')
+    '0' -> _() -> _mode('0'),
+    '1' -> _() -> _mode('1'),
+    '2' -> _() -> _mode('2'),
+    '3' -> _() -> _mode('3')
   }
 };
+
+_mode() -> run('gamemode %s '+player()~'command_name');return('&8[&em&ba&6i&7SMP&8]&f Gamemode cambiata con successo')
