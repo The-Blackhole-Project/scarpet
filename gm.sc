@@ -3,7 +3,7 @@ __config() -> {
     'stay_loaded' -> true,
     'scope' -> 'global',
     'commands' -> {
-        '<mode>' -> _() -> modify(player, '%s', '%s');return('&8[&em&ba&6i&7SMP&8]&f Gamemode cambiata con successo')
+        '<mode>' -> _() -> 'mode'
     },
     'arguments' -> {
         'mode' -> {
@@ -14,3 +14,5 @@ __config() -> {
         }
     }
 };
+
+mode(mode) -> modify(player, '%s', '%s');return('&8[&em&ba&6i&7SMP&8]&f Gamemode cambiata con successo')
