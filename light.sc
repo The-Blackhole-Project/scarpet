@@ -15,7 +15,7 @@ __on_player_clicks_block(player, block, face) -> (
     )
 );
 
-_show_light(player, pos) -> particle('electric_spark', pos + [0.5, 0.5, 0.5], 5, 0, 5, player);
+_show_light(player, pos) -> particle('electric_spark', pos + [0.5, 0.5, 0.5], 1, 0, 0, player);
 _show_light_area(player) ->
 in_dimension(player,
     scan(pos(player), [5, 5, 5],
@@ -51,7 +51,7 @@ _looper() -> (
     for(filter(player('*'), (h = _ ~ 'holds') && h:0 == 'light' && _ ~ 'gamemode' != 'creative'),
         _show_light_area(_);
     );
-    schedule(40, '_looper')
+    schedule(20, '_looper')
 );
 _looper();
 
