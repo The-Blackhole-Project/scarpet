@@ -23,10 +23,10 @@ _show_light_area(player) -> in_dimension(player, scan(pos(player), [5, 5, 5],
     )
 );
 
-//__on_player_switches_slot(player, from, to)->
-//if((item_tuple = inventory_get(player, to)) && item_tuple:0 == 'light',
-//    _show_light_area(player)
-//);
+__on_player_switches_slot(player, from, to)->
+if((item_tuple = inventory_get(player, to)) && item_tuple:0 == 'light',
+    _show_light_area(player)
+);
 
 __on_player_places_block(player, item_tuple, hand, block) ->
 if(block == 'light' && item_tuple,
