@@ -15,23 +15,23 @@ __on_player_clicks_block(player, block, face) -> (
     )
 );
 
-_show_light(player, pos) -> particle('light', pos + [0.5, 0.5, 0.5], player);
-_show_light_area(player) -> in_dimension(player, scan(pos(player), [5, 5, 5],
-        if(_ == 'light',
-            _show_light(player, pos(_))
-        )
-    )
-);
+//_show_light(player, pos) -> particle('light', pos + [0.5, 0.5, 0.5], player);
+//_show_light_area(player) -> in_dimension(player, scan(pos(player), [5, 5, 5],
+//        if(_ == 'light',
+//            _show_light(player, pos(_))
+//        )
+//    )
+//);
 
-__on_player_switches_slot(player, from, to)->
-if((item_tuple = inventory_get(player, to)) && item_tuple:0 == 'light',
-    _show_light_area(player)
-);
+//__on_player_switches_slot(player, from, to)->
+//if((item_tuple = inventory_get(player, to)) && item_tuple:0 == 'light',
+//    _show_light_area(player)
+//);
 
 __on_player_places_block(player, item_tuple, hand, block) ->
 if(block == 'light' && item_tuple,
     [item, count, nbt] = item_tuple;
-    if (count > 1, _show_light(player, pos(block)));
+    //if (count > 1, _show_light(player, pos(block)));
     if(nbt && (level = nbt:'display.Name' ~ '\\d+') && number(level) >= 0 && number(level) < 16,
         set(pos(block), block, 'level', level);
         nbt:'BlockStateTag.level' = level;
@@ -45,13 +45,13 @@ if(block == 'light' && item_tuple,
     )
 );
 
-_looper() -> (
-    for(filter(player('*'), (h = _ ~ 'holds') && h:0 == 'light' && _ ~ 'gamemode' != 'creative'),
-        _show_light_area(_);
-    );
-    schedule(40, '_looper')
-);
-_looper();
+//_looper() -> (
+//    for(filter(player('*'), (h = _ ~ 'holds') && h:0 == 'light' && _ ~ 'gamemode' != 'creative'),
+//        _show_light_area(_);
+//    );
+//    schedule(40, '_looper')
+//);
+//_looper();
 
 global_app_name = system_info('app_name');
 create_datapack(global_app_name, {
