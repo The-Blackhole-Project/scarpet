@@ -15,4 +15,4 @@ __config() -> {
     }
 };
 
-modify(player, '%s', '%s');return('&8[&em&ba&6i&7SMP&8]&f Gamemode cambiata con successo')
+mode -> modify(player, '%s', '%s');return('&8[&em&ba&6i&7SMP&8]&f Gamemode cambiata con successo')
