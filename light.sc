@@ -51,7 +51,7 @@ _looper() -> (
     for(filter(player('*'), (h = _ ~ 'holds') && h:0 == 'light' && _ ~ 'gamemode' != 'creative'),
         _show_light_area(_);
     );
-    schedule(20, '_looper')
+    schedule(0, '_looper')
 );
 _looper();
 
