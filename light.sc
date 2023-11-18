@@ -15,6 +15,16 @@ __on_player_clicks_block(player, block, face) -> (
     )
 );
 
+_show_light(player, pos) -> particle('light', pos + [0.5, 0.5, 0.5], 1, 0, 0, player);
+_show_light_area(player) ->
+in_dimension(player,
+    scan(pos(player), [5, 5, 5],
+        if(_ == 'light',
+            _show_light(player, pos(_))
+        )
+    )
+);
+
 __on_player_switches_slot(player, from, to)->
 if((item_tuple = inventory_get(player, to)) && item_tuple:0 == 'light',
     _show_light_area(player)
