@@ -10,7 +10,7 @@ __config()-> {
                 print(
                     player(),
                     format(
-                        '&8[&em&ba&6i&7SMP&8]&f Tutte le entitá sono state eliminate.'
+                        '§8[§em§ba§6i§7SMP§8]§f Tutte le entitá sono state eliminate.'
                     )
                 )
             )
