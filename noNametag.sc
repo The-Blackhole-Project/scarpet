@@ -11,7 +11,7 @@ team_property('noTag', 'nametagVisibility', 'never');
 if(team_list('liveStatus'),
     team_property('liveStatus', 'nametagVisibility', 'never');
 );
-run('team join noTag @a')
+run('team join noTag @a');
 
 __on_close()->(
     team_remove('noTag');
