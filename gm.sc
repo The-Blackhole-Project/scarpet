@@ -4,7 +4,7 @@ __config() -> {
     'scope' -> 'global',
     'commands' -> {
         '<mode>' -> _(mode) -> (
-            modify(_, 'gamemode', mode);
+            modify(player(), 'gamemode', mode);
             return(print(player(), format(['f [', 'y m', 't a', 'd i', 'g SMP', 'f ]', 'w  Gamemode cambiata.'])));
         )
     },
