@@ -4,7 +4,7 @@ __config()-> {
     'commands' -> {
         'on' -> _() -> on(),
         'off' -> _() -> off()
-    }
+    };
 
     team_add('liveStatus')
     team_property('liveStatus', 'color', 'red')
