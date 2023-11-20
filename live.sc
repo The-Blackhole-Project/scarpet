@@ -2,20 +2,21 @@ __config()-> {
     'stay_loaded' -> true,
     'scope' -> 'global',
     'commands' -> {
-        'on' -> _() -> on(),
-        'off' -> _() -> off()
+        'on' -> _() -> (
+            team_add('liveStatus', player());
+            return(print(player(), format(['f [', 'y m', 't a', 'd i', 'g SMP', 'f ]', 'w  Modalitá live attiva.'])));
+        ),
+        'off' -> _() -> (
+            team_leave(player());
+            return(print(player(), format(['f [', 'y m', 't a', 'd i', 'g SMP', 'f ]', 'w  Modalitá live disattivata.'])));
+        )
     };
 
-    team_add('liveStatus')
-    team_property('liveStatus', 'color', 'red')
-    team_property('liveStatus', 'prefix', format('c◉'))
-}
+};
+team_add('liveStatus');
+team_property('liveStatus', 'color', 'white');
+team_property('liveStatus', 'prefix', format('r ● '));
 
-on(
-    team_add('liveStatus', player())
-    return(print(player(), format(['8 ['], ['e m'], ['b a'], ['6 i'], ['7 SMP'], ['8 ]'], ['f Modalitá live attiva.'])))
-)
-off(
-    team_remove(player())
-    return(print(player(), format(['8 ['], ['e m'], ['b a'], ['6 i'], ['7 SMP'], ['8 ]'], ['f Modalitá live disattivata.'])))
+__on_close()->(
+    team_remove('liveStatus')
 )
