@@ -6,7 +6,7 @@ __config() -> {
         '<mode>' -> _(mode) -> (
             modify(player(), 'gamemode', mode);
             return(print(player(), format(['f [', 'y m', 't a', 'd i', 'g SMP', 'f ]', 'w  Gamemode cambiata.'])));
-        )
+        );
     },
     'arguments' -> {
         'mode' -> {
